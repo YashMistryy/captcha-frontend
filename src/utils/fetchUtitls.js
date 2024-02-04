@@ -2,7 +2,7 @@ import axios from "axios";
 import { useLocation } from "react-router-dom";
 
 // const baseURL = "http://127.0.0.1:8000/";
-const baseURL = "http://35.173.237.226:8000/";
+const baseURL = "http://34.229.253.44:8000/";
 // process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 const axiosInstance = axios.create({
