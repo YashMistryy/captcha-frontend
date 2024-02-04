@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 
 // const baseURL = "http://127.0.0.1:8000/";
 const baseURL = "http://35.173.237.226:8000/";
+// process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 const axiosInstance = axios.create({
   baseURL: baseURL,
@@ -101,7 +102,7 @@ axiosInstance.interceptors.response.use(
 
       // Get the path part after the site host
       const pathAfterHost = new URL(currentUrl).pathname;
-      alert(pathAfterHost);
+      // alert(pathAfterHost);
       console.log("Path after site host:", pathAfterHost);
       if (
         pathAfterHost !== "/signin" &&
