@@ -81,7 +81,7 @@ const Dashboard = () => {
           //  not having a plan hence navigating to Plans page
           navigate("/");
         }
-
+        debugger
         setUserName(data.userData.member_id);
       })
       .catch((err) => {

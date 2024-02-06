@@ -15,6 +15,9 @@ import { UserContextProvider } from "./Contexts/UserContext";
 import { PlanWaitPage, LimitCrossWaitPage } from "./pages/WaitingPages";
 import WalletPage from "./pages/Wallet";
 import RefferalPage from "./pages/RefferalPage";
+import AddFunds from "./pages/SelectPlan";
+import ConfirmPlan from "./pages/ConfirmPlan";
+
 
 function App() {
   return (
@@ -25,17 +28,18 @@ function App() {
           <Route path="/user-profile" element={<UserProfile />} />
           <Route path="/user-wallet" element={<WalletPage />} />
           <Route path="/user-refferal" element={<RefferalPage />} />
+          <Route path="/add-funds" element={<AddFunds />} />
 
+    
           <Route path="/" element={<MarketingPage />} />
           <Route path="/signin" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/plans" element={<PlansPage />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/test" element={<TestComponent />} />
-          <Route path="/test" element={<TestComponent />} />
           <Route path="/wait-for-activation" element={<PlanWaitPage />} />
           <Route path="/wait-for-limit" element={<LimitCrossWaitPage />} />
-          <Route path="/select-plan/:paramValue" element={<SelectPlan />} />
+          <Route path="/select-plan/:paramValue" element={<ConfirmPlan/>} />
         </Routes>
         <Footer />
       </UserContextProvider>

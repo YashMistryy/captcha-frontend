@@ -1,32 +1,38 @@
 import React, { useState } from "react";
 import { TextField, Button, Container, Grid, Paper } from "@mui/material";
 import { axiosInstance } from "../utils/fetchUtitls";
-import {useNavigate} from 'react-router-dom'
-const TransactionForm = ({ planId }) => {
+import { useNavigate } from "react-router-dom";
+
+const TransactionForm = () => {
   const [transactionId, setTransactionId] = useState("");
-  const [memberId, setMemberId] = useState("");
+  // const [memberId, setMemberId] = useState("");
   const [mobileNumber, setMobileNumber] = useState("");
-  const plan_id = planId;
-  const navigate = useNavigate()
+  const [amount, setAmount] = useState("");
+  const [refferal_id, setRefferalId] = useState("");
+
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form submitted:", {
       transactionId,
-      memberId,
+      refferal_id,
       mobileNumber,
-      plan_id,
+      amount,
     });
     // Add your logic for handling form data (e.g., send data to a server)
+
+    // .post("/api/select-plan/", { // this is not longer required
     axiosInstance
-      .post("/api/select-plan/", {
+      .post("/api/add-funds/", {
         transactionId,
-        memberId,
+        refferal_id,
         mobileNumber,
-        plan_id,
+        amount,
       })
       .then((res) => {
+        debugger;
         console.log({ "select-plan response": res });
-        navigate("/dashboard")
+        navigate("/user-wallet");
       })
       .catch((err) => {
         console.log({ "select-plan error": err });
@@ -60,18 +66,30 @@ const TransactionForm = ({ planId }) => {
               <TextField
                 variant="outlined"
                 fullWidth
-                label="Member ID"
-                value={memberId}
-                onChange={(e) => setMemberId(e.target.value)}
+                label="Amount"
+                value={amount}
+                inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }} // Only accepts numbers
+                onChange={(e) => setAmount(e.target.value)}
                 required
               />
             </Grid>
+            {/* <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                fullWidth
+                label="Refferal ID"
+                value={refferal_id}
+                onChange={(e) => setRefferalId(e.target.value)}
+                required
+              />
+            </Grid> */}
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
                 fullWidth
                 label="Mobile Number"
                 value={mobileNumber}
+                inputProps={{ inputMode: "numeric", pattern: "[0-9]*" }} // Only accepts numbers
                 onChange={(e) => setMobileNumber(e.target.value)}
                 required
               />

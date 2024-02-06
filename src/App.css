@@ -464,26 +464,29 @@
   justify-content: center;
   background-color: aliceblue;
   max-width: 40%;
+  width: 100%;
   margin-right: auto;
 }
 @media (max-width: 767px) {
   .user-form {
     display: flex;
-    flex-wrap: wrap;
-    max-width: 70%;
-
-    margin: 20px auto;
+    /* flex-wrap: wrap; */
+    max-width: 80%;
+    padding: 0px;
+    margin: 20px 0px;
   }
 }
 .user-form .transc-form {
+  /* outline: 1px solid red; */
   display: flex;
   flex-direction: column;
   justify-content: left;
-  max-width: 70%;
+  width: 100%;
+  /* max-width: 70%; */
   /* padding: 15px 10px; */
   label input {
-    margin: 10px 0px;
-    padding: 10px 10px;
+    /* margin: 10px 0px; */
+    /* padding: 10px 10px; */
   }
 }
 
@@ -771,6 +774,17 @@ button:hover {
   border: 2px solid #008080;
   padding: 3px 5px;
   border-radius: 5px;
+}
+
+.plan-select-form {
+  background-color: aliceblue;
+  width: 90%;
+  margin: auto;
+  padding: 15px;
+}
+
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation3.css-3su884-MuiPaper-root {
+  box-shadow: none;
 }
 /* * {
   outline: 1px solid red;

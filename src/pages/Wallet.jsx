@@ -6,7 +6,8 @@ import { BiMoneyWithdraw } from "react-icons/bi";
 import { MdOutlinePayment } from "react-icons/md";
 import { IoIosAddCircle } from "react-icons/io";
 import { FaMoneyBillTrendUp } from "react-icons/fa6";
-
+import { axiosInstance } from "../utils/fetchUtitls";
+import { useNavigate } from "react-router-dom";
 const WithDrawPopupForm = ({ onSubmit, setWdrPopupOpen }) => {
   const [amount, setAmount] = useState("");
   const [upiId, setUpiId] = useState("");
@@ -25,6 +26,16 @@ const WithDrawPopupForm = ({ onSubmit, setWdrPopupOpen }) => {
   return (
     <div className="popup-overlay">
       <div className="popup-container">
+        <div
+          style={{
+            backgroundColor: "lightcoral",
+            padding: "2px 10px",
+            borderRadius: "5px",
+            marginBottom: "5px",
+          }}
+        >
+          <p>Withdraw will be done on balance greater than 10k</p>
+        </div>
         <div
           style={{
             fontSize: "1.5rem",
@@ -84,12 +95,29 @@ const WithDrawPopupForm = ({ onSubmit, setWdrPopupOpen }) => {
 
 const WalletPage = () => {
   const { currentUserData } = useContext(UserContext);
-  const [isWdrPopupOpen, setWdrPopupOpen] = useState(true);
+  const [isWdrPopupOpen, setWdrPopupOpen] = useState(false);
+  const navigate = useNavigate();
   const onWtdrSubmit = ({ amount, upiId, bankAccountId }) => {
     // Handle the submitted data
     console.log("Form Data in App:", { amount, upiId, bankAccountId });
-
+    axiosInstance
+      .post("/api/withdraw-amount/", {
+        amount,
+        upi_id: upiId,
+        bank_id: bankAccountId,
+      })
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log({ err });
+      });
+    setWdrPopupOpen(false);
+    window.location.reload();
     // Perform any other actions based on the submitted data
+  };
+  const navigateToAddFunds = () => {
+    navigate("/add-funds");
   };
   return (
     <div className="user-profile-main">
@@ -133,11 +161,19 @@ const WalletPage = () => {
       </div>
 
       <div className="wallet-btns">
-        <div className="add-main">
+        <div
+          className="add-main"
+          onClick={navigateToAddFunds}
+          style={{ cursor: "pointer" }}
+        >
           <IoIosAddCircle className="btns" />
           <span>Add Funds</span>
         </div>
-        <div className="wtdr-main">
+        <div
+          className="wtdr-main"
+          onClick={() => setWdrPopupOpen(true)}
+          style={{ cursor: "pointer" }}
+        >
           <FaMoneyBillTrendUp className="btns" />
           <span>Withdraw Funds</span>
         </div>
@@ -194,7 +230,7 @@ const WalletPage = () => {
       />
       {currentUserData ? (
         <div className="payment_history_comp">
-          {currentUserData.data.payment_history.map((record) => (
+          {currentUserData.data.withdraw_history.map((record) => (
             <div className="payment_row" key={record.id}>
               <span>{record.id}</span>
               <span>{record.amount}</span>

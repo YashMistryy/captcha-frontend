@@ -6,36 +6,36 @@ import QrCode from "../images/demo_qr.png";
 import All_upi_icons from "../images/all_upi_icons.png"
 import TransactionForm from "../components/Trasaction";
 
-const SelectPlan = () => {
+const AddFunds = () => {
   const navigate = useNavigate();
-  const [planData, setPlanData] = useState({
-    planName: "",
-    planPrice: "",
-    planReferrals: "",
-    planDailyLimit: "",
-  });
-  const { paramValue } = useParams(); // if not found then renavigate to plans page
-  console.log({paramValue});
-  if (!paramValue) {
-    console.log("no plans selected");
-    navigate("/plans");
-  }
+  // const [planData, setPlanData] = useState({
+  //   planName: "",
+  //   planPrice: "",
+  //   planReferrals: "",
+  //   planDailyLimit: "",
+  // });
+  // const { paramValue } = useParams(); // if not found then renavigate to plans page
+  // console.log({paramValue});
+  // if (!paramValue) {
+  //   console.log("no plans selected");
+  //   navigate("/plans");
+  // }
 
 
-  useEffect(() => {
-    // call the backend to provide plan details
-    axiosInstance
-      .get(`api/plan-details?planId=${paramValue}`, { planId: paramValue })
-      .then((res) => {
-        //we got to load this page with selected plan details here
-        setPlanData(res.data);
-      })
-      .catch((err) => {
-        debugger
-        console.log({ err });
-      });
-  }, [paramValue]);
-  console.log({ planData });
+  // useEffect(() => {
+  //   // call the backend to provide plan details
+  //   axiosInstance
+  //     .get(`api/plan-details?planId=${paramValue}`, { planId: paramValue })
+  //     .then((res) => {
+  //       //we got to load this page with selected plan details here
+  //       setPlanData(res.data);
+  //     })
+  //     .catch((err) => {
+  //       debugger
+  //       console.log({ err });
+  //     });
+  // }, [paramValue]);
+  // console.log({ planData });
 
   return (
     <div className="purchase-plan">
@@ -46,10 +46,10 @@ const SelectPlan = () => {
         <img className="upi-img" src={All_upi_icons} alt="pay with any up1 :)"/>
       </div>
       <div className="user-form">
-        <TransactionForm planId={paramValue}/>
+        <TransactionForm />
       </div>
     </div>
   );
 };
 
-export default SelectPlan;
+export default AddFunds;
