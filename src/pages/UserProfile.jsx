@@ -85,11 +85,11 @@ const UserProfile = () => {
           </span>
         </div>
       </div>
-
+      {/* 
       <div style={{margin:"auto",color:"green",fontWeight:'bolder',fontSize:'25px',marginTop:"20px"}}>
         <FaCoins className="icon1" />
         <span>Withdraw Money</span>
-      </div>
+      </div> */}
     </div>
   );
 };

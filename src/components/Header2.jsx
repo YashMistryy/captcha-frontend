@@ -21,18 +21,22 @@ import { GiTwoCoins } from "react-icons/gi";
 import { axiosInstance } from "../utils/fetchUtitls";
 import { useEffect } from "react";
 import { UserContext } from "../Contexts/UserContext";
+import { FaMoneyBillAlt } from "react-icons/fa";
+
 const pages = [
   { url: "/plans", name: "Plans" },
   { url: "/dashboard", name: "Dashboard" },
   { url: "/user-profile", name: "My Account" },
+  { url: "/user-wallet", name: "My Wallet" },
+  { url: "/user-refferal", name: "Refferals" },
 ];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function ResponsiveAppBar2() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const {currentUserData} = React.useContext(UserContext)
-  console.log({currentUserData});
+  const { currentUserData } = React.useContext(UserContext);
+  console.log({ currentUserData });
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -47,7 +51,6 @@ function ResponsiveAppBar2() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-
 
   return (
     <AppBar position="static" style={{ backgroundColor: "#006666" }}>
@@ -172,8 +175,10 @@ function ResponsiveAppBar2() {
               </IconButton>
             </Tooltip> */}
             <div className="balance-container">
-              <GiTwoCoins className="coin-icon" />
-              <span className="balance-amount">₹{currentUserData?currentUserData.data.current_balance:0}</span>
+              <FaMoneyBillAlt className="coin-icon" />
+              <span className="balance-amount">
+                ₹{currentUserData ? currentUserData.data.current_balance : 0}
+              </span>
             </div>
             <Menu
               sx={{ mt: "45px" }}

@@ -13,15 +13,19 @@ import ResponsiveAppBar2 from "./components/Header2";
 import UserProfile from "./pages/UserProfile";
 import { UserContextProvider } from "./Contexts/UserContext";
 import { PlanWaitPage, LimitCrossWaitPage } from "./pages/WaitingPages";
-function App() {
+import WalletPage from "./pages/Wallet";
+import RefferalPage from "./pages/RefferalPage";
 
- 
+function App() {
   return (
     <div className="App">
       <UserContextProvider>
         <ResponsiveAppBar2 />
         <Routes>
           <Route path="/user-profile" element={<UserProfile />} />
+          <Route path="/user-wallet" element={<WalletPage />} />
+          <Route path="/user-refferal" element={<RefferalPage />} />
+
           <Route path="/" element={<MarketingPage />} />
           <Route path="/signin" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
