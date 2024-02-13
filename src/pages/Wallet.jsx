@@ -8,13 +8,23 @@ import { IoIosAddCircle } from "react-icons/io";
 import { FaMoneyBillTrendUp } from "react-icons/fa6";
 import { axiosInstance } from "../utils/fetchUtitls";
 import { useNavigate } from "react-router-dom";
-const WithDrawPopupForm = ({ onSubmit, setWdrPopupOpen }) => {
+
+const WithDrawPopupForm = ({ onSubmit, setWdrPopupOpen, withdrLimit }) => {
+  // is withdrw limit is null ,that can means user is not enrolled in a plan hence not allowed to withdraw
   const [amount, setAmount] = useState("");
   const [upiId, setUpiId] = useState("");
   const [bankAccountId, setBankAccountId] = useState("");
-
+  debugger;
+  if (!withdrLimit) {
+    alert("Withdrawls are only allowed during the Plan is active!");
+    setWdrPopupOpen(false);
+  }
   const onSubmitPopup = () => {
     // Perform actions with the submitted data
+    if (!amount || !upiId || !bankAccountId) {
+      alert("Please fill in all required fields."); // Show an alert or handle validation error
+      return;
+    }
     console.log("Submitted Data:", { amount, upiId, bankAccountId });
 
     // Pass the submitted data to the parent component
@@ -34,7 +44,7 @@ const WithDrawPopupForm = ({ onSubmit, setWdrPopupOpen }) => {
             marginBottom: "5px",
           }}
         >
-          <p>Withdraw will be done on balance greater than 10k</p>
+          <p>Withdraw will be done on balance greater than {withdrLimit}</p>
         </div>
         <div
           style={{
@@ -51,6 +61,7 @@ const WithDrawPopupForm = ({ onSubmit, setWdrPopupOpen }) => {
             type="number"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
+            required
           />
         </label>
         <label>
@@ -80,7 +91,9 @@ const WithDrawPopupForm = ({ onSubmit, setWdrPopupOpen }) => {
             margin: "20px 0px",
           }}
         >
-          <button onClick={onSubmitPopup}>Submit</button>
+          <button type="submit" onClick={onSubmitPopup}>
+            Submit
+          </button>
           <button
             style={{ backgroundColor: "blue" }}
             onClick={() => setWdrPopupOpen(false)}
@@ -100,6 +113,12 @@ const WalletPage = () => {
   const onWtdrSubmit = ({ amount, upiId, bankAccountId }) => {
     // Handle the submitted data
     console.log("Form Data in App:", { amount, upiId, bankAccountId });
+    if (
+      amount > currentUserData ? currentUserData.data.plan_withdraw_limit : 0
+    ) {
+      alert("Select amount less or equal to daily Withdrawl Limit");
+      return;
+    }
     axiosInstance
       .post("/api/withdraw-amount/", {
         amount,
@@ -111,6 +130,7 @@ const WalletPage = () => {
       })
       .catch((err) => {
         console.log({ err });
+        alert("Something went wrong with Your transaction please try again!");
       });
     setWdrPopupOpen(false);
     window.location.reload();
@@ -125,6 +145,9 @@ const WalletPage = () => {
         <WithDrawPopupForm
           onSubmit={onWtdrSubmit}
           setWdrPopupOpen={setWdrPopupOpen}
+          withdrLimit={
+            currentUserData ? currentUserData.data.plan_withdraw_limit : 0
+          }
         />
       )}
       <div className="header">

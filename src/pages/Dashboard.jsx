@@ -79,7 +79,8 @@ const Dashboard = () => {
           }
         } else {
           //  not having a plan hence navigating to Plans page
-          navigate("/");
+          alert("Select a plan first")
+          navigate("/plans");
         }
         debugger
         setUserName(data.userData.member_id);

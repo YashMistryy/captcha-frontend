@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.9a5983b4.css",
-    "main.js": "/static/js/main.e219362f.js",
+    "main.css": "/static/css/main.d4b8ad40.css",
+    "main.js": "/static/js/main.97387d12.js",
     "static/js/787.07aa837e.chunk.js": "/static/js/787.07aa837e.chunk.js",
     "static/media/all_upi_icons.png": "/static/media/all_upi_icons.5d6e51163db5f5e820df.png",
     "static/media/bg-marketing.svg": "/static/media/bg-marketing.bd335fdbfcd8d06347ef.svg",
     "static/media/m1.svg": "/static/media/m1.cc1984ec64f13f40e0dca1b4a587c494.svg",
     "static/media/m2.svg": "/static/media/m2.a75f371ba953d32be96ed08e19c5d262.svg",
     "index.html": "/index.html",
-    "main.9a5983b4.css.map": "/static/css/main.9a5983b4.css.map",
-    "main.e219362f.js.map": "/static/js/main.e219362f.js.map",
+    "main.d4b8ad40.css.map": "/static/css/main.d4b8ad40.css.map",
+    "main.97387d12.js.map": "/static/js/main.97387d12.js.map",
     "787.07aa837e.chunk.js.map": "/static/js/787.07aa837e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9a5983b4.css",
-    "static/js/main.e219362f.js"
+    "static/css/main.d4b8ad40.css",
+    "static/js/main.97387d12.js"
   ]
 }

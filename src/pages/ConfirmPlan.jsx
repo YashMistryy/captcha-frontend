@@ -32,8 +32,16 @@ const ConfirmPlan = () => {
         plan_id: paramValue,
       })
       .then((res) => {
-        if ((res.status = 204)) {
+        debugger;
+        if (res.status === 204) {
           // this means low balance hence urge user to add funds
+          debugger;
+          alert("User already enrolled in a plan");
+          debugger;
+          navigate("/dashboard");
+        } else if (res.status === 205) {
+          // this means low balance hence urge user to add funds
+          debugger;
           alert("Insufficient balance , Please add Funds to your Wallet");
           debugger;
           navigate("/add-funds");

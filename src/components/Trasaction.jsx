@@ -1,21 +1,33 @@
 import React, { useState } from "react";
-import { TextField, Button, Container, Grid, Paper } from "@mui/material";
+import {
+  TextField,
+  Button,
+  Container,
+  Grid,
+  Paper,
+  Typography,
+} from "@mui/material";
 import { axiosInstance } from "../utils/fetchUtitls";
 import { useNavigate } from "react-router-dom";
 
 const TransactionForm = () => {
-  const [transactionId, setTransactionId] = useState("");
   // const [memberId, setMemberId] = useState("");
   const [mobileNumber, setMobileNumber] = useState("");
   const [amount, setAmount] = useState("");
   const [refferal_id, setRefferalId] = useState("");
+  const [transactionId, setTransactionId] = useState("");
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const handleImageChange = (event) => {
+    const imageFile = event.target.files[0];
+    setSelectedImage(imageFile);
+  };
 
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form submitted:", {
       transactionId,
-      refferal_id,
       mobileNumber,
       amount,
     });
@@ -28,7 +40,12 @@ const TransactionForm = () => {
         refferal_id,
         mobileNumber,
         amount,
-      })
+        selectedImage
+      },
+      {headers: {
+        'Content-Type': 'multipart/form-data'
+      }}
+      )
       .then((res) => {
         debugger;
         console.log({ "select-plan response": res });
@@ -93,6 +110,41 @@ const TransactionForm = () => {
                 onChange={(e) => setMobileNumber(e.target.value)}
                 required
               />
+            </Grid>
+            <Grid item xs={12}>
+              <div
+                style={{
+                  border: "1px solid #D3D3D3",
+                  borderRadius: "3px",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center !important",
+                }}
+              >
+                <Typography
+                  variant="body1"
+                  component="label"
+                  htmlFor="fileInput"
+                  style={{
+                    fontSize: "18px",
+                    marginTop: "10px",
+                  }}
+                >
+                  Payment ScreenShot
+                </Typography>
+                <input
+                  style={{
+                    textAlign: "center",
+                    maxWidth: "200px",
+                  }}
+                  type="file"
+                  id="fileInput"
+                  accept="image/*"
+                  onChange={handleImageChange}
+                  required
+                />
+              </div>
             </Grid>
           </Grid>
           <Button
