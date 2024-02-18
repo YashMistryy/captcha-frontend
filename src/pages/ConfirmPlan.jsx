@@ -45,7 +45,10 @@ const ConfirmPlan = () => {
           alert("Insufficient balance , Please add Funds to your Wallet");
           debugger;
           navigate("/add-funds");
-        }
+        }   
+        else{
+         // now if plan selection was successful navigate to dashboard
+          navigate("/dashboard")}
       });
   };
   useEffect(() => {

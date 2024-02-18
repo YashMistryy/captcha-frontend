@@ -6,7 +6,7 @@ export const UserContext = createContext();
 export const UserContextProvider = ({ children }) => {
   const [currentUserData, setCurrentUserData] = useState(null);
   const [redirected, setRedirected] = useState(false);
-
+   const [isLoading, setLoading] = useState(true);
   useEffect(() => {
     if (redirected) {
       return; // Skip making the API call
@@ -15,7 +15,8 @@ export const UserContextProvider = ({ children }) => {
     .then((data) => {
       console.log({ "user-context-data": data });
       setCurrentUserData(data);
-      setRedirected(true);
+      //setRedirected(true);
+      setLoading(false); 
     })
     .catch((error)=>{
       if (error.response && error.response.status === 401) {
@@ -26,7 +27,7 @@ export const UserContextProvider = ({ children }) => {
   }, []);
 
   return (
-    <UserContext.Provider value={{ currentUserData ,setCurrentUserData}}>
+    <UserContext.Provider value={{ currentUserData ,setCurrentUserData , isLoading }}>
       {children}
     </UserContext.Provider>
   );

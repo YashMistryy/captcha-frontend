@@ -1,32 +1,35 @@
-import React, { useState, useEffect } from 'react';
+	import React from 'react';
+import { isMobile } from 'react-device-detect';
 
-export const TestComponent = () => {
-  const [randomNumber, setRandomNumber] = useState(generateRandomNumber());
-  const [inputValue, setInputValue] = useState('');
+function TestComponent() {
+  const openPhonePe = () => {
+const merchantId = 'mab0450400a0162083@yesbank'; // Replace with your actual merchant ID
+    const merchantName = 'Shop'; // Replace with your merchant name
+    const amount = 398; // Replace with your desired amount
+    const transactionId = 'H2MkMGf5olejI'; // Replace with your transaction ID
+    const currency = 'INR'; // Replace with your currency code
+    const note = 'shop'; // Replace with your transaction note
+    const purpose = '00';
+    let url = ''
+    //let url = `https://phon.pe/${merchantId}?amount=${amount}`;
+    //let url = 'phonepe://pay?pa=merchant1606034.augp@aubank&pn=Shop&am=398&tr=H2MkMGf5olejI&mc=8931&cu=INR&tn=shop'
+    //let url = 'tez://upi/pay?pa=merchant1606034.augp@aubank&pn=Shop&purpose=00&am=398'
 
-function generateRandomNumber() {
-    return Math.floor(Math.random() * 9000) + 1000; // Random 4-digit number
-  }
+    // If the user is on a mobile device, attempt to open the PhonePe app
+    if (isMobile) {
+        // url = `phonepe://pay?pa=${merchantId}&pn=${merchantName}&am=${amount}&tr=${transactionId}&mc=8931&cu=${currency}&tn=${note}`;
+      url = `tez://upi/pay?pa=${merchantId}&pn=${merchantName}&purpose=${purpose}&am=${amount}`;
 
-  useEffect(() => {
-    setRandomNumber(generateRandomNumber());
-  }, []); // Run once when the component mounts
+    }
 
-  const handleInputChange = (event) => {
-    setInputValue(event.target.value);
+    window.location.href = url;
   };
-  console.log("TEst component loaded!!!");
 
   return (
     <div>
-      <p>Random Number: {randomNumber}</p>
-      <label>
-        Input:
-        <input type="text" value={inputValue} onChange={handleInputChange} />
-      </label>
-      <p>Input Value: {inputValue}</p>
-      <button onClick={()=>setInputValue(inputValue+1)}>click me</button>
+      <button onClick={openPhonePe}>Open PhonePe</button>
     </div>
   );
-};
+}
 
+export { TestComponent};

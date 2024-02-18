@@ -130,7 +130,7 @@ function ResponsiveAppBar2() {
           {/* <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} /> */}
           <IoLogoFreebsdDevil className="mobile-appbar-icon" />
           <Typography
-            variant="h5"
+            variant={{ xs: 'body1', md: 'h5' }}
             noWrap
             component="a"
             href="/"
@@ -140,9 +140,10 @@ function ResponsiveAppBar2() {
               flexGrow: 1,
               fontFamily: "monospace",
               fontWeight: 700,
-              letterSpacing: ".3rem",
+              //letterSpacing: ".3rem",
               color: "inherit",
               textDecoration: "none",
+              fontSize: { xs: '16px', md: 'large' }
             }}
           >
             99Captchas
@@ -176,7 +177,7 @@ function ResponsiveAppBar2() {
             <div className="balance-container">
               <FaMoneyBillAlt className="coin-icon" />
               <span className="balance-amount">
-                ₹{currentUserData ? currentUserData.data.current_balance : 0}
+                ₹{currentUserData ? currentUserData.data.current_balance : " ..."}
               </span>
             </div>
             <Menu

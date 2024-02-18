@@ -77,6 +77,10 @@ export default function PlansPage() {
             },
           }}
         >
+
+
+
+
           <Card
             sx={{
               width: "100vw",
@@ -160,7 +164,7 @@ export default function PlansPage() {
                 </ListItem>
                 <ListItem sx={{ fontSize: "13px" }}>
                   <Typography variant="p" style={standoutStyle}>
-                    300 Captchas / Day
+                    200 Captchas / Day
                   </Typography>
                 </ListItem>
               </List>
@@ -174,7 +178,7 @@ export default function PlansPage() {
                 ₹3000
               </Typography>
               <Button
-              onClick={()=>handleNavigation(1)}
+                onClick={() => handleNavigation(1)}
                 sx={{
                   backgroundColor: "#eef3fe",
                   fontWeight: "600",
@@ -185,7 +189,6 @@ export default function PlansPage() {
                   width: "100%",
                   color: "#2567f4",
                   textTransform: "uppercase",
-                  
                 }}
               >
                 Seletct Plan
@@ -278,7 +281,7 @@ export default function PlansPage() {
                 </ListItem>
                 <ListItem sx={{ fontSize: "13px" }}>
                   <Typography variant="p" style={standoutStyle}>
-                    700 Captchas / Day
+                    350 Captchas / Day
                   </Typography>
                 </ListItem>
               </List>
@@ -292,7 +295,7 @@ export default function PlansPage() {
                 ₹5000
               </Typography>
               <Button
-              onClick={()=>handleNavigation(2)}
+                onClick={() => handleNavigation(2)}
                 sx={{
                   backgroundColor: "#eef3fe",
                   fontWeight: "600",
@@ -394,7 +397,7 @@ export default function PlansPage() {
                 </ListItem>
                 <ListItem sx={{ fontSize: "13px" }}>
                   <Typography variant="p" style={standoutStyle}>
-                    1200 Captchas / Day
+                    700 Captchas / Day
                   </Typography>
                 </ListItem>
               </List>
@@ -408,7 +411,7 @@ export default function PlansPage() {
                 ₹10,000
               </Typography>
               <Button
-              onClick={()=>handleNavigation(3)}
+                onClick={() => handleNavigation(3)}
                 sx={{
                   backgroundColor: "#eef3fe",
                   fontWeight: "600",
@@ -425,6 +428,240 @@ export default function PlansPage() {
               </Button>
             </Stack>
           </Card>
+
+          <Card
+            sx={{
+              width: "100vw",
+              maxWidth: "290px",
+              boxShadow: "none",
+              border: "1px solid #e8ebf1",
+              height: "fit-content",
+            }}
+          >
+            <Stack
+              sx={{
+                padding: "24px",
+                alignItems: "center",
+                "@media(max-width:479px)": { padding: "20px" },
+              }}
+              gap="20px"
+              direction="column"
+            >
+              <Stack gap="0px" direction="column">
+                <Typography
+                  sx={{
+                    fontWeight: "600",
+                    fontSize: "40px",
+                    "@media(max-width:991px)": { fontSize: "35px" },
+                    "@media(max-width:479px)": { fontSize: "30px" },
+                  }}
+                  variant="subtitle"
+                >
+                  Elite
+                </Typography>
+                <Stack gap="0px" direction="row">
+                  <Typography
+                    sx={{
+                      fontWeight: "700",
+                      fontSize: "22px",
+                      "@media(max-width:991px)": { fontSize: "20px" },
+                      "@media(max-width:479px)": { fontSize: "18px" },
+                    }}
+                    variant="subHeading"
+                  >
+                    100+ users
+                  </Typography>
+                  <Typography
+                    sx={{
+                      marginTop: "8px",
+                      "@media(max-width:479px)": {
+                        marginTop: "4px",
+                        fontSize: "14px",
+                      },
+                    }}
+                    variant="subtitle"
+                  >
+                    /month
+                  </Typography>
+                </Stack>
+              </Stack>
+              <Typography
+                sx={{
+                  fontSize: "13px",
+                  lineHeight: "normal",
+                  "@media(max-width:479px)": { textAlign: "center" },
+                }}
+                variant="p"
+                style={standoutStyleSmall}
+              >
+                +4000 on Referals
+              </Typography>
+              <List
+                sx={{ listStyleType: "disc", paddingLeft: "10px" }}
+                listType="ul"
+              >
+                <ListItem sx={{ fontSize: "13px" }}>
+                  <Typography variant="p">
+                    Elevate Your Captcha Experience to Elite Status..
+                  </Typography>
+                </ListItem>
+                <ListItem sx={{ fontSize: "13px" }}>
+                  <Typography variant="p">
+                    High-capacity workload for dedicated full -time users.
+                  </Typography>
+                </ListItem>
+                <ListItem sx={{ fontSize: "13px" }}>
+                  <Typography variant="p" style={standoutStyle}>
+                    1300 Captchas / Day
+                  </Typography>
+                </ListItem>
+              </List>
+              <Typography
+                sx={{
+                  fontSize: "23px",
+                  "@media(max-width:479px)": { fontSize: "19px" },
+                }}
+                variant="p"
+              >
+                ₹20,000
+              </Typography>
+              <Button
+                onClick={() => handleNavigation(4)}
+                sx={{
+                  backgroundColor: "#eef3fe",
+                  fontWeight: "600",
+                  border: "none",
+                  fontSize: "13px",
+                  padding: "10px 8px",
+                  justifyContent: "center",
+                  width: "100%",
+                  color: "#2567f4",
+                  textTransform: "uppercase",
+                }}
+              >
+                Select Plan
+              </Button>
+            </Stack>
+          </Card>
+
+          <Card
+            sx={{
+              width: "100vw",
+              maxWidth: "290px",
+              boxShadow: "none",
+              border: "1px solid #e8ebf1",
+              height: "fit-content",
+            }}
+          >
+            <Stack
+              sx={{
+                padding: "24px",
+                alignItems: "center",
+                "@media(max-width:479px)": { padding: "20px" },
+              }}
+              gap="20px"
+              direction="column"
+            >
+              <Stack gap="0px" direction="column">
+                <Typography
+                  sx={{
+                    fontWeight: "600",
+                    fontSize: "40px",
+                    "@media(max-width:991px)": { fontSize: "35px" },
+                    "@media(max-width:479px)": { fontSize: "30px" },
+                  }}
+                  variant="subtitle"
+                >
+                  Ultimate
+                </Typography>
+                <Stack gap="0px" direction="row">
+                  <Typography
+                    sx={{
+                      fontWeight: "700",
+                      fontSize: "22px",
+                      "@media(max-width:991px)": { fontSize: "20px" },
+                      "@media(max-width:479px)": { fontSize: "18px" },
+                    }}
+                    variant="subHeading"
+                  >
+                    100+ users
+                  </Typography>
+                  <Typography
+                    sx={{
+                      marginTop: "8px",
+                      "@media(max-width:479px)": {
+                        marginTop: "4px",
+                        fontSize: "14px",
+                      },
+                    }}
+                    variant="subtitle"
+                  >
+                    /month
+                  </Typography>
+                </Stack>
+              </Stack>
+              <Typography
+                sx={{
+                  fontSize: "13px",
+                  lineHeight: "normal",
+                  "@media(max-width:479px)": { textAlign: "center" },
+                }}
+                variant="p"
+                style={standoutStyleSmall}
+              >
+                +5000 on Referals
+              </Typography>
+              <List
+                sx={{ listStyleType: "disc", paddingLeft: "10px" }}
+                listType="ul"
+              >
+                <ListItem sx={{ fontSize: "13px" }}>
+                  <Typography variant="p">
+                    Experience Captcha Mastery with the Ultimate Plan.
+                  </Typography>
+                </ListItem>
+                <ListItem sx={{ fontSize: "13px" }}>
+                  <Typography variant="p">
+                    Ultimate: Elevate Your Captcha Game to New Heights.
+                  </Typography>
+                </ListItem>
+                <ListItem sx={{ fontSize: "13px" }}>
+                  <Typography variant="p" style={standoutStyle}>
+                    2000 Captchas / Day
+                  </Typography>
+                </ListItem>
+              </List>
+              <Typography
+                sx={{
+                  fontSize: "23px",
+                  "@media(max-width:479px)": { fontSize: "19px" },
+                }}
+                variant="p"
+              >
+                ₹30,000
+              </Typography>
+              <Button
+                onClick={() => handleNavigation(5)}
+                sx={{
+                  backgroundColor: "#eef3fe",
+                  fontWeight: "600",
+                  border: "none",
+                  fontSize: "13px",
+                  padding: "10px 8px",
+                  justifyContent: "center",
+                  width: "100%",
+                  color: "#2567f4",
+                  textTransform: "uppercase",
+                }}
+              >
+                Select Plan
+              </Button>
+            </Stack>
+          </Card>
+
+
+
+
         </Box>
       </Box>
 

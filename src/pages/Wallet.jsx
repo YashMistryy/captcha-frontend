@@ -107,7 +107,7 @@ const WithDrawPopupForm = ({ onSubmit, setWdrPopupOpen, withdrLimit }) => {
 };
 
 const WalletPage = () => {
-  const { currentUserData } = useContext(UserContext);
+  const { currentUserData, isLoading } = useContext(UserContext);
   const [isWdrPopupOpen, setWdrPopupOpen] = useState(false);
   const navigate = useNavigate();
   const onWtdrSubmit = ({ amount, upiId, bankAccountId }) => {
@@ -127,18 +127,47 @@ const WalletPage = () => {
       })
       .then((res) => {
         console.log(res.data);
+        window.location.reload(); 
       })
       .catch((err) => {
         console.log({ err });
         alert("Something went wrong with Your transaction please try again!");
       });
     setWdrPopupOpen(false);
-    window.location.reload();
+    //window.location.reload();
     // Perform any other actions based on the submitted data
   };
   const navigateToAddFunds = () => {
     navigate("/add-funds");
   };
+  if (isLoading) {
+    return (<div className="loader">
+
+<div
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '100vh', // Full viewport height
+      }}
+    >
+      <div
+        style={{
+          textAlign: 'center',
+          padding: '20px',
+          border: '1px solid #ccc',
+          borderRadius: '5px',
+          backgroundColor: '#f9f9f9',
+          boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
+        }}
+      >
+        <p>Content is Loading...</p>
+        <p>Please refresh if not.</p>
+      </div>
+    </div>
+
+    </div>)
+  }
   return (
     <div className="user-profile-main">
       {isWdrPopupOpen && (

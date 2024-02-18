@@ -112,6 +112,7 @@ export default function LoginPage() {
               position: "fixed",
               bottom: "100px", // Adjust the distance from the bottom as needed
               left: "50%",
+              width:"80%",
               transform: "translateX(-50%)",
             }}
           >

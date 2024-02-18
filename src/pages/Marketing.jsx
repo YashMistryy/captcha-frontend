@@ -181,39 +181,78 @@ export const MarketingPage = () => {
       </div>
       <div className="marketing-stats">
         <div className="heading">Auto captcha solver customers online statistics</div>
-        <div className="stat-cards">
 
-            <div className="card">
-                <div className="card-head">
-                    Rates
-                </div>
-                <div className="content">
-                    <span>₹1.0(0.01$)</span>
-                   <span> Per normal captchas</span>
-                   <span>₹10.0(0.15$)</span>
-                   <span> Per JS captchas</span>
-                </div>
-            </div>
-            <div className="card"><div className="card-head">
-                    Captcha Watchin Time
-                </div>
-                <div className="content">
-                    <span>₹1.0(0.01$)</span>
-                   <span> Per normal captchas</span>
-                   <span>₹10.0(0.15$)</span>
-                   <span> Per JS captchas</span>
-                </div></div>
-            <div className="card"><div className="card-head">
-                    Workers online
-                </div>
-                <div className="content">
-                    <span>1k+</span>
-                   <span> Right now</span>
-                   <span>7k+ </span>
-                   <span>Registered</span>
-                </div></div>
-
+ <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        width: '90%',
+        margin: '0 auto',
+      }}
+    >
+      <div
+        style={{
+          marginBottom: '20px',
+          border: '1px solid #ccc',
+          borderRadius: '5px',
+          backgroundColor: '#f9f9f9',
+          boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
+          width: '100%',
+          padding: '10px',
+        }}
+      >
+        <div style={{fontWeigh:"bold",fontSize:"18px"}}>Rates</div>
+        <div className="content">
+          <span>₹1.0(0.01$)</span>
+          <span> Per normal captchas</span>
+          <br />
+          <span>₹10.0(0.15$)</span>
+          <span> Per JS captchas</span>
         </div>
+      </div>
+      <div
+        style={{
+          marginBottom: '20px',
+          border: '1px solid #ccc',
+          borderRadius: '5px',
+          backgroundColor: '#f9f9f9',
+          boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
+          width: '100%',
+          padding: '10px',
+        }}
+      >
+        <div  style={{fontWeigh:"bold",fontSize:"18px"}}>Captcha Watching Time</div>
+        <div className="content">
+          <span>₹1.0(0.01$)</span>
+          <span> Per normal captchas</span>
+          <br />
+          <span>₹10.0(0.15$)</span>
+          <span> Per JS captchas</span>
+        </div>
+      </div>
+      <div
+        style={{
+          marginBottom: '20px',
+          border: '1px solid #ccc',
+          borderRadius: '5px',
+          backgroundColor: '#f9f9f9',
+          boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
+          width: '100%',
+          padding: '10px',
+        }}
+      >
+        <div  style={{fontWeigh:"bold",fontSize:"18px"}}>Workers Online</div>
+        <div className="content">
+          <span>1k+</span>
+          <span> Right now</span>
+          <br />
+          <span>7k+ </span>
+          <span>Registered</span>
+        </div>
+      </div>
+    </div>
+
       </div>
     </div>
   );

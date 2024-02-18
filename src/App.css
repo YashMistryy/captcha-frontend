@@ -331,6 +331,11 @@
     width: 90%; /* Set width to 90% on mobile screens */
   }
 }
+
+span.balance-amount {
+        min-width: 55px;
+    }
+
 .marketing-card .card-body {
   display: flex;
   flex-direction: column;
@@ -404,6 +409,9 @@
     }
   }
 }
+
+
+
 .purchase-plan {
   margin-top: 29px;
   height: 100%;
@@ -422,14 +430,30 @@
   background-color: white;
   /* max-width: 43%; */
   width: 40%;
+  padding:10px;
   margin: auto;
   text-wrap: stable;
+  .upi-wrapper{
+     padding:15px;
+     display:flex;
+     flex-direction:column;
+     margin-bottom:15px;
+   }
 
   .number {
     font-size: 29px;
     font-weight: 900;
     margin-top: 15px;
+    margin-bottom:15px;
   }
+  
+@media (max-width: 1200px) {
+  .number {
+    font-size: 16px; /* Adjust the font size for mobile screens */
+    margin-top:15px;
+  }
+}
+
   .qr-img {
     max-width: 400px;
   }
@@ -539,10 +563,23 @@ svg.mobile-appbar-icon {
   border-radius: 3px;
 }
 
+
+@keyframes wiggle {
+  0% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(-10deg);
+  }
+}
 .coin-icon {
   font-size: x-large;
   margin-right: 5px; /* Adjust the margin as needed */
   color: #02d117; /* Gold color */
+  animation: wiggle 1s ease 1.5;
 }
 
 .balance-amount {

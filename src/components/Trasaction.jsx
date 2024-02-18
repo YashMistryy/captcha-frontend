@@ -10,10 +10,10 @@ import {
 import { axiosInstance } from "../utils/fetchUtitls";
 import { useNavigate } from "react-router-dom";
 
-const TransactionForm = () => {
+const TransactionForm = ({amount,setAmount} ) => {
   // const [memberId, setMemberId] = useState("");
   const [mobileNumber, setMobileNumber] = useState("");
-  const [amount, setAmount] = useState("");
+  //const [amount, setAmount] = useState("");
   const [refferal_id, setRefferalId] = useState("");
   const [transactionId, setTransactionId] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
