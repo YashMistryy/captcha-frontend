@@ -202,7 +202,7 @@ export const MarketingPage = () => {
           padding: '10px',
         }}
       >
-        <div style={{fontWeigh:"bold",fontSize:"18px"}}>Rates</div>
+        <div style={{fontWeight:"bold",fontSize:"18px"}}>Rates</div>
         <div className="content">
           <span>₹1.0(0.01$)</span>
           <span> Per normal captchas</span>
@@ -222,7 +222,7 @@ export const MarketingPage = () => {
           padding: '10px',
         }}
       >
-        <div  style={{fontWeigh:"bold",fontSize:"18px"}}>Captcha Watching Time</div>
+        <div  style={{fontWeight:"bold",fontSize:"18px"}}>Captcha Watching Time</div>
         <div className="content">
           <span>₹1.0(0.01$)</span>
           <span> Per normal captchas</span>
@@ -242,7 +242,7 @@ export const MarketingPage = () => {
           padding: '10px',
         }}
       >
-        <div  style={{fontWeigh:"bold",fontSize:"18px"}}>Workers Online</div>
+        <div  style={{fontWeight:"bold",fontSize:"18px"}}>Workers Online</div>
         <div className="content">
           <span>1k+</span>
           <span> Right now</span>
