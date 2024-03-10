@@ -45,7 +45,7 @@ const Footer = () => {
           Contact Us
         </Typography>
         <Typography variant="subtitle1" align="center" style={contactStyle}>
-          Email: <Link href="mailto:info@99captcha.com">info@99captcha.com</Link>
+          Email: <Link href="mailto:info@share2win.com">info@share2win.com</Link>
         </Typography>
 
         <Typography variant="body2" align="center" style={copyrightStyle}>

@@ -85,7 +85,7 @@ function ResponsiveAppBar2() {
               textDecoration: "none",
             }}
           >
-            99Captchas
+            Share2Win
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -174,7 +174,7 @@ function ResponsiveAppBar2() {
               fontSize: { xs: '16px', md: 'large' }
             }}
           >
-            99Captchas
+            Share2Win
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {Object.keys(pages).map((key) => (

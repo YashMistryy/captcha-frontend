@@ -211,9 +211,6 @@
 }
 
 .marketing-main {
-  background-image: url("./images/bg-marketing.svg");
-  background-size: cover; /* Adjust as needed */
-  background-repeat: no-repeat; /* Adjust as needed */
   height: max-content;
   /* width: 100%; I dont know why it creates problem*/
   box-sizing: border-box;
